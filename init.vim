@@ -1,3 +1,23 @@
+let g:python_recommended_style = 0
+set nu
+set ruler
+set ts=4
+set sts=4
+set sw=4
+set si
+set ci
+set ai
+set title
+set showmatch
+set colorcolumn=80
+set cursorline
+set background=dark
+set hlsearch
+set mouse=a
+filetype on
+set enc=UTF-8
+set fileencoding=UTF-8
+
 call plug#begin('~/.config/nvim/plugged')
 	"Plug 'Github계정명/저장소명'"
 	Plug 'scrooloose/nerdtree'
@@ -55,21 +75,8 @@ let g:NERDTrimTrailingWhitespace = 1
 map <Leader>c<space> <plug>NERDComComment
 "map <Leader>cc <plug>NERDComToggleComment
 
-set nu
-set ruler
-set ts=4
-set sts=4
-set sw=4
-set si
-set ci
-set ai
-set title
-set showmatch
-set colorcolumn=80
-set cursorline
-set background=dark
-set hlsearch
-set mouse=a
-filetype on
-set enc=UTF-8
-set fileencoding=UTF-8
+"Coc-nvim
+let g:python3_host_prog = '/usr/bin/python3.8'
+let g:coc_global_extensions = ['coc-explorer', 'coc-json', 'coc-tsserver', 'coc-import-cost', 'coc-eslint', 'coc-snippets', 'coc-template', 'coc-html', 'coc-css', 'coc-emmet', 'coc-pyright', 'coc-phpls', 'coc-angular', 'coc-git']
+let g:coc_global_extensions = ['coc-explorer', 'coc-json', 'coc-tsserver', 'coc-import-cost', 'coc-eslint', 'coc-snippets', 'coc-html', 'coc-css', 'coc-emmet', 'coc-pyright', 'coc-phpls', 'coc-angular', 'coc-git']
+let g:coc_global_extensions += ['https://github.com/andys8/vscode-jest-snippets']
