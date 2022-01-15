@@ -1,6 +1,7 @@
 Ubuntu 20.04 need pre-install.
 
 \$ sudo su
+
 \# curl -sL install-node.vercel.app/lts | bash
 
 --------------------
