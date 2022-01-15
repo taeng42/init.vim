@@ -1,4 +1,4 @@
-Ubuntu 20.04 need pre-install.
+# Ubuntu 20.04 need pre-install.
 
 \$ sudo su
 
