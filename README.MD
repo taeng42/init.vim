@@ -21,7 +21,7 @@ Ubuntu 20.04 need pre-install.
 
 \> Installing Node.js, please wait…
 
-\✓ Done
+✓ Done
 
 -------------------
 
