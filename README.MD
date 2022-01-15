@@ -5,7 +5,7 @@ Ubuntu 20.04 need pre-install.
 
 --------------------
 
-\  Configuration
+  Configuration
 \> Version:  v16.13.2 (resolved from lts)
 \> Prefix:   /usr/local
 \> Platform: linux
