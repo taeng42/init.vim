@@ -21,7 +21,9 @@
 
 \> Installing Node.js, please wait…
 
-\> npm install --global yarn
+-----------------------
+
+\# npm install --global yarn
 
 ✓ Done
 
