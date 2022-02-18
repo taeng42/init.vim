@@ -26,7 +26,8 @@
 -------------------
 
 \# exit
-
-
+-------------
+$ sudo npm install --global yarn
+$ source ~/.zshrc
 ref
 * https://githubhelp.com/neoclide/coc.nvim
