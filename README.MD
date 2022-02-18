@@ -21,14 +21,9 @@
 
 \> Installing Node.js, please wait…
 
+\> npm install --global yarn
 ✓ Done
 
--------------------
-
-\# exit
--------------
-\$ sudo npm install --global yarn
-\$ source ~/.zshrc
 
 --------------------
 ref
