@@ -20,6 +20,7 @@ set fileencoding=UTF-8
 
 call plug#begin('~/.config/nvim/plugged')
 	"Plug 'Github계정명/저장소명'"
+	Plug 'lambdalisue/vim-manpager'
 	Plug 'scrooloose/nerdtree'
 	Plug 'scrooloose/nerdcommenter'
 	Plug 'pbondoer/vim-42header'
