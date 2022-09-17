@@ -1,3 +1,10 @@
+# Ubuntu 22.04 need pre-install.
+\$ cd
+\$ curl -sL https://deb.nodesource.com/setup_14.x -o nodesource_setup.sh
+\$ sudo sh ~/.nodesource_setup.sh
+
+------------------------------------
+
 # Ubuntu 20.04 need pre-install.
 
 \$ sudo su
