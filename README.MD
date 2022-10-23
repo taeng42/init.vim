@@ -45,3 +45,4 @@ ref
 * 출처: https://zereight.tistory.com/143 [Zereight's Blog]
 
 CoC 설정 출처 : https://velog.io/@langssi/NeoVim-CoC
+CoC 언어 서버 목록 : https://github.com/neoclide/coc.nvim/wiki/Language-servers
