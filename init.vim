@@ -107,7 +107,7 @@ let g:NERDTrimTrailingWhitespace = 1
 "Coc-nvim
 "let g:python3_host_prog = '/usr/bin/python3.8'
 let g:python3_host_prog = 'python3'
-let g:coc_global_extensions = ['coc-python', 'coc-clangd', 'coc-explorer', 'coc-json', 'coc-tsserver', 'coc-import-cost', 'coc-eslint', 'coc-snippets', 'coc-html', 'coc-css', 'coc-emmet', 'coc-pyright']
+let g:coc_global_extensions = ['coc-clangd', 'coc-explorer', 'coc-json', 'coc-tsserver', 'coc-import-cost', 'coc-eslint', 'coc-snippets', 'coc-html', 'coc-css', 'coc-emmet', 'coc-pyright']
 let g:coc_global_extensions += ['https://github.com/andys8/vscode-jest-snippets']
 " Make <CR> to accept selected completion item or notify coc.nvim to format
 " <C-g>u breaks current undo, please make your own choice.
