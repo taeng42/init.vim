@@ -6,7 +6,7 @@
 "    By: taeng <taeng@innoaca.kr>                   +#+  +:+       +#+         "
 "                                                 +#+#+#+#+#+   +#+            "
 "    Created: 2022/02/19 11:34:36 by taeng             #+#    #+#              "
-"    Updated: 2022/09/17 14:13:36 by hyulim           ###   ########.fr        "
+"    Updated: 2022/11/11 17:05:44 by hyulim           ###   ########.fr        "
 "                                                                              "
 " **************************************************************************** "
 
@@ -64,13 +64,15 @@ call plug#begin('~/.vim/plugged')
         "Plug 'SirVer/ultisnips'
         Plug 'vim-syntastic/syntastic'
         Plug 'alexandregv/norminette-vim'
+        "Plug 'dawnbeen/c_formatter_42'
+        Plug 'cacharle/c_formatter_42.vim'
+
 call plug#end()
 let g:hdr42user = 'hyulim'
 let g:hdr42mail = 'hyulim@student.42seoul.kr'
 "let g:hdr42user = 'taeng'
 "let g:hdr42mail = 'hyundong@innoaca.kr'
 colorscheme gruvbox
-"let g:airline_thee='gruvbox'
 let g:airline_theme='gruvbox'
 
 if has("syntax")
@@ -83,6 +85,10 @@ map  <C-h> :tabp<CR>
 
 "ignore files in NERDTree
 let NERDTreeIgnore=['\.a$', '\.o$', '\.gch$', 'a\.out' , '\~$']
+
+let g:NERDTreeMouseMode=3
+
+let g:NERDTreeWinPos = 'left'
 
 " NERD Commenter
 " Add spaces after comment delimiters by default
@@ -111,8 +117,7 @@ let g:coc_global_extensions = ['coc-clangd', 'coc-explorer', 'coc-json', 'coc-ts
 let g:coc_global_extensions += ['https://github.com/andys8/vscode-jest-snippets']
 " Make <CR> to accept selected completion item or notify coc.nvim to format
 " <C-g>u breaks current undo, please make your own choice.
-inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
-                \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm(): "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 " Enable norminette-vim (and gcc)
 let g:syntastic_c_checkers = ['norminette', 'gcc']
@@ -123,7 +128,7 @@ let g:syntastic_c_norminette_exec = 'norminette'
 
 " Support headers (.h)
 let g:c_syntax_for_h = 1
-let g:syntastic_c_include_dirs = ['include', '../include', 'libft']
+let g:syntastic_c_include_dirs = ['includes', '../includes', 'libft']
 
 " Pass custom arguments to norminette (this one ignores 42header)
 let g:syntastic_c_norminette_args = '-R CheckTopCommentHeader'
@@ -139,3 +144,6 @@ let g:syntastic_auto_loc_list = 1
 
 " Skip check when closing
 let g:syntastic_check_on_wq = 0
+
+" set default formatter as c_formatter_42
+let g:c_formatter_42_set_equalprg=1
