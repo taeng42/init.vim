@@ -6,7 +6,7 @@
 "    By: taeng <taeng@innoaca.kr>                   +#+  +:+       +#+         "
 "                                                 +#+#+#+#+#+   +#+            "
 "    Created: 2022/02/19 11:34:36 by taeng             #+#    #+#              "
-"    Updated: 2022/11/15 07:57:49 by hyulim           ###   ########.fr        "
+"    Updated: 2022/11/15 09:07:08 by hyulim           ###   ########.fr        "
 "                                                                              "
 " **************************************************************************** "
 
@@ -116,22 +116,63 @@ let g:python3_host_prog = 'python3'
 let g:coc_global_extensions = ['coc-clangd', 'coc-explorer', 'coc-json', 'coc-tsserver', 'coc-import-cost', 'coc-eslint', 'coc-snippets', 'coc-html', 'coc-css', 'coc-emmet', 'coc-pyright']
 let g:coc_global_extensions += ['https://github.com/andys8/vscode-jest-snippets']
 
-"-- GoTo code navigation.
 
-" go to function definition
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" [Custom keymappings] see plugin/coc.vim
+" ---------------------------------------
+
+" Go to definitions
+"noremap <silent> <F12> :CocJumpDefinition<CR>
+"command! -nargs=0 CocJumpDefinition :call CocActionAsync('jumpDefinition')
+"command! -nargs=0 JumpDefinition :call CocActionAsync('jumpDefinition')
+
+" Remap keys for gotos
 nmap <silent> gd <Plug>(coc-definition)
-
-" go to type definition (ex: typedef or struct)
-nmap <silent> gy <Plug>(coc-type-definition)
-
-" go to ...what is this???
-nmap <silent> gi <Plug>(coc-implementation)
-
-" go to function usage
 nmap <silent> gr <Plug>(coc-references)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
 
 " Symbol renaming. (leader == \ )
 nmap <leader>rn <Plug>(coc-rename)
+
+" Map 'J' for showing documentation in preview window
+" Use command ':verbose map J' to make sure it does not have conflict
+" with other plugins (e.g. python-mode, jedi-vim)
+nnoremap <silent> J :call <SID>show_documentation()<CR>
+function! s:show_documentation()
+  if &filetype == 'vim'
+    execute 'h '.expand('<cword>')
+  else
+    call CocActionAsync('doHover')
+  endif
+endfunction
+
+" Experimental feature (preview definition): gp, `<leader>K`, or <Shift-F12>:
+" Peek into the definition in a floating window.
+" TODO: If there are 2+ definitions, it does not work with floating windows (coc.nvim problem)
+command! -nargs=0 PreviewDefinition :call CocActionAsync('jumpDefinition', ':OpenAsPreview')
+command! -nargs=* OpenAsPreview :call s:open_as_preview("<args>")
+function! s:open_as_preview(callstr)
+  " e.g. the string should look like: +call cursor(<line>,<col>) <filename>
+  let m = matchlist(a:callstr, '^+call cursor(\(\d\+\),\s*\(\d\+\))\s\+\(.*\)')
+  if len(m) < 4   " TODO: more robust error handling
+    echohl WarningMsg | echom "ERROR: Invalid callstr format" | echohl None
+    return
+  endif
+  let linenr = m[1]
+  let filename = expand(m[3])
+  call quickui#preview#open(filename, {
+        \ 'cursor': linenr,
+        \ 'number' : 1,
+        \ 'persist': 0,
+        \ })
+endfunction
+" <F24> = <Shift-F12>
+"nmap <silent> <F12>         :<C-U>PreviewDefinition<CR>
+"nmap <leader>J     :<C-U>PreviewDefinition<CR>
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 
 " Make <CR> to accept selected completion item or notify coc.nvim to format
 " <C-g>u breaks current undo, please make your own choice.
