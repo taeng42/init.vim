@@ -6,7 +6,7 @@
 "    By: taeng <taeng@innoaca.kr>                   +#+  +:+       +#+         "
 "                                                 +#+#+#+#+#+   +#+            "
 "    Created: 2022/02/19 11:34:36 by taeng             #+#    #+#              "
-"    Updated: 2022/11/11 17:05:44 by hyulim           ###   ########.fr        "
+"    Updated: 2022/11/15 07:57:49 by hyulim           ###   ########.fr        "
 "                                                                              "
 " **************************************************************************** "
 
@@ -115,6 +115,24 @@ let g:NERDTrimTrailingWhitespace = 1
 let g:python3_host_prog = 'python3'
 let g:coc_global_extensions = ['coc-clangd', 'coc-explorer', 'coc-json', 'coc-tsserver', 'coc-import-cost', 'coc-eslint', 'coc-snippets', 'coc-html', 'coc-css', 'coc-emmet', 'coc-pyright']
 let g:coc_global_extensions += ['https://github.com/andys8/vscode-jest-snippets']
+
+"-- GoTo code navigation.
+
+" go to function definition
+nmap <silent> gd <Plug>(coc-definition)
+
+" go to type definition (ex: typedef or struct)
+nmap <silent> gy <Plug>(coc-type-definition)
+
+" go to ...what is this???
+nmap <silent> gi <Plug>(coc-implementation)
+
+" go to function usage
+nmap <silent> gr <Plug>(coc-references)
+
+" Symbol renaming. (leader == \ )
+nmap <leader>rn <Plug>(coc-rename)
+
 " Make <CR> to accept selected completion item or notify coc.nvim to format
 " <C-g>u breaks current undo, please make your own choice.
 inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm(): "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
