@@ -39,7 +39,8 @@ set enc=UTF-8
 set fileencoding=UTF-8
 "set backspace=indent,eol,start
 
-call plug#begin('~/.vim/plugged')
+"call plug#begin('~/.vim/plugged')
+call plug#begin()
         "Plug 'Github계정명/저장소명'"
         Plug 'scrooloose/nerdtree'
         Plug 'scrooloose/nerdcommenter'
